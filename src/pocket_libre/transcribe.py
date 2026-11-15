@@ -11,13 +11,14 @@ console = Console()
 
 def transcribe_audio(
     input_path: str,
-    model_name: str = "base.en",
+    model_name: str = "small",
     output_path: str | None = None,
     output_format: str = "text",
 ):
     """Transcribe an audio file using Whisper locally.
 
-    No network calls. No API keys. The model runs entirely on your machine.
+    German transcription runs locally without API keys.
+    The first use downloads model weights if they are not cached.
     """
     input_file = Path(input_path)
     if not input_file.exists():
@@ -40,7 +41,7 @@ def transcribe_audio(
 
     console.print(f"[cyan]Transcribing: {input_path}[/cyan]\n")
 
-    result = model.transcribe(str(input_file), verbose=False)
+    result = model.transcribe(str(input_file), verbose=False, language="de", task="transcribe")
 
     text = result["text"].strip()
     segments = result.get("segments", [])

@@ -107,7 +107,7 @@ async def sync_new_recordings(
     session_key: str,
     out_root: Path,
     process: bool = False,
-    whisper_model: str = "base.en",
+    whisper_model: str = "small",
     summary_style: str = "meeting",
     anthropic_key: str | None = None,
     hf_token: str | None = None,
@@ -174,7 +174,7 @@ def _process_recording(
     from pocket_libre.summarize import format_transcript_for_summary
 
     model = whisper.load_model(whisper_model)
-    result = model.transcribe(str(audio_path), verbose=False)
+    result = model.transcribe(str(audio_path), verbose=False, language="de", task="transcribe")
     segments = result.get("segments", [])
 
     try:

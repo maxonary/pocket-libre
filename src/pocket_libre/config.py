@@ -25,7 +25,7 @@ DEFAULTS = {
         "directory": "~/Pocket Libre",
     },
     "defaults": {
-        "whisper_model": "base.en",
+        "whisper_model": "small",
         "summary_style": "meeting",
     },
     "analysis": {

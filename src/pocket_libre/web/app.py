@@ -307,7 +307,7 @@ async def process_recording(date: str, timestamp: str):
         address, sk = _require_device(config)
     else:
         address = sk = None
-    whisper_model = get(config, "defaults", "whisper_model", default="base.en")
+    whisper_model = get(config, "defaults", "whisper_model", default="small")
     summary_style = get(config, "defaults", "summary_style", default="meeting")
     anthropic_key = resolve_anthropic_key(config)
     hf_token = resolve_hf_token(config)
@@ -371,7 +371,7 @@ async def process_recording(date: str, timestamp: str):
             loop = asyncio.get_event_loop()
             model = await loop.run_in_executor(None, whisper.load_model, whisper_model)
             yield _sse({"step": "transcribe", "message": "Transcribing..."})
-            result = await loop.run_in_executor(None, lambda: model.transcribe(str(audio_path), verbose=False))
+            result = await loop.run_in_executor(None, lambda: model.transcribe(str(audio_path), verbose=False, language="de", task="transcribe"))
             segments = result.get("segments", [])
             yield _sse({"step": "transcribe", "message": f"Transcribed: {len(segments)} segments"})
         except ImportError:
@@ -438,7 +438,7 @@ async def sync_all():
     config = load_config()
     address, sk = _require_device(config)
     out_root = Path(get_output_dir(config))
-    whisper_model = get(config, "defaults", "whisper_model", default="base.en")
+    whisper_model = get(config, "defaults", "whisper_model", default="small")
     summary_style = get(config, "defaults", "summary_style", default="meeting")
     anthropic_key = resolve_anthropic_key(config)
     hf_token = resolve_hf_token(config)
@@ -535,7 +535,7 @@ async def sync_all():
                 model = await loop.run_in_executor(None, whisper.load_model, whisper_model)
                 result = await loop.run_in_executor(
                     None,
-                    lambda m=model, p=audio_path: m.transcribe(str(p), verbose=False),
+                    lambda m=model, p=audio_path: m.transcribe(str(p), verbose=False, language="de", task="transcribe"),
                 )
                 segments = result.get("segments", [])
                 yield _sse({"step": "transcribe", "recording": i, "total": total,

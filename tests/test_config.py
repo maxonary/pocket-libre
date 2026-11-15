@@ -45,7 +45,7 @@ def test_empty_string_is_treated_as_unset(monkeypatch):
 
 def test_falls_back_to_defaults_when_absent(monkeypatch):
     monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
-    assert cfg.get({}, "defaults", "whisper_model") == "base.en"
+    assert cfg.get({}, "defaults", "whisper_model") == "small"
 
 
 def test_missing_session_key_returns_empty(monkeypatch):

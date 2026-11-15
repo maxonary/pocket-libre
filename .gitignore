@@ -15,3 +15,15 @@ build/
 *.tar.gz
 .ruff_cache/
 .pytest_cache/
+
+# Native iOS build artifacts
+ios/.build/
+DerivedData/
+*.xcuserstate
+xcuserdata/
+
+# Local session-key exports and device diagnostics
+pocket-key.json
+*.mobileprovision
+*.mobileconfig
+*.ipa

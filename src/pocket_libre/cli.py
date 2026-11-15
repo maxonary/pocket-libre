@@ -174,10 +174,10 @@ def setup(ctx):
     )
     new_config["defaults"]["summary_style"] = style
 
-    default_model = new_config["defaults"].get("whisper_model", "base.en")
+    default_model = new_config["defaults"].get("whisper_model", "small")
     model = click.prompt(
         "  Whisper model",
-        type=click.Choice(["tiny.en", "base.en", "small.en", "medium.en", "large"]),
+        type=click.Choice(["tiny", "base", "small", "medium", "large", "turbo"]),
         default=default_model,
     )
     new_config["defaults"]["whisper_model"] = model
@@ -338,14 +338,14 @@ def capture(ctx, address: str | None, output: str, duration: int, char_uuid: str
 
 @cli.command()
 @click.option("--input", "input_path", required=True, help="Path to audio file (.wav, .raw).")
-@click.option("--model", default="base.en",
-              type=click.Choice(["tiny.en", "base.en", "small.en", "medium.en", "large"]),
+@click.option("--model", default="small",
+              type=click.Choice(["tiny", "base", "small", "medium", "large", "turbo"]),
               help="Whisper model size.")
 @click.option("--output", default=None, help="Save transcript to file.")
 @click.option("--format", "output_format", default="text",
               type=click.Choice(["text", "json", "srt"]), help="Output format.")
 def transcribe(input_path: str, model: str, output: str | None, output_format: str):
-    """Transcribe an audio file locally using Whisper. No cloud, no network."""
+    """Transcribe German audio locally. First use downloads the model."""
     transcribe_audio(
         input_path=input_path,
         model_name=model,
@@ -859,7 +859,7 @@ def download_all(ctx, address: str | None, session_key: str | None,
         for path in downloaded_paths:
             console.print(f"\n[bold]Processing {path.name}...[/bold]")
             ctx.invoke(process, input_path=str(path),
-                       whisper_model=get(config, "defaults", "whisper_model", default="base.en"),
+                       whisper_model=get(config, "defaults", "whisper_model", default="small"),
                        style=get(config, "defaults", "summary_style", default="meeting"),
                        anthropic_key=None, hf_token=None, skip_summary=False,
                        output=str(path.parent))
@@ -1036,7 +1036,7 @@ def delete(ctx, address: str | None, session_key: str | None, date: str | None,
               help="Only recordings from this date (YYYY-MM-DD) on: the date of the "
                    "recording's folder on the device, in UTC.")
 @click.option("--whisper-model", default=None,
-              type=click.Choice(["tiny.en", "base.en", "small.en", "medium.en", "large"]),
+              type=click.Choice(["tiny", "base", "small", "medium", "large", "turbo"]),
               help="Whisper model size.")
 @click.option("--style", default=None,
               type=click.Choice(["meeting", "notes", "call", "raw"]),
@@ -1066,7 +1066,7 @@ def sync(ctx, address: str | None, output_dir: str | None, since: str | None,
     config = ctx.obj["config"]
     address = _require_address(address, config)
     out_root = Path(get_output_dir(config, output_dir))
-    whisper_model = whisper_model or get(config, "defaults", "whisper_model", default="base.en")
+    whisper_model = whisper_model or get(config, "defaults", "whisper_model", default="small")
     style = style or get(config, "defaults", "summary_style", default="meeting")
     anthropic_key = resolve_anthropic_key(config, anthropic_key)
     hf_token = resolve_hf_token(config, hf_token)
@@ -1145,7 +1145,7 @@ def sync(ctx, address: str | None, output_dir: str | None, since: str | None,
             try:
                 import whisper
                 model = whisper.load_model(whisper_model)
-                result = model.transcribe(str(audio_path), verbose=False)
+                result = model.transcribe(str(audio_path), verbose=False, language="de", task="transcribe")
                 segments = result.get("segments", [])
             except Exception as e:
                 console.print(f"  [red]Transcription failed: {e}[/red]")
@@ -1199,7 +1199,7 @@ def sync(ctx, address: str | None, output_dir: str | None, since: str | None,
 @cli.command()
 @click.option("--input", "input_path", required=True, help="Path to MP3 or WAV file.")
 @click.option("--whisper-model", default=None,
-              type=click.Choice(["tiny.en", "base.en", "small.en", "medium.en", "large"]),
+              type=click.Choice(["tiny", "base", "small", "medium", "large", "turbo"]),
               help="Whisper model size.")
 @click.option("--style", default=None,
               type=click.Choice(["meeting", "notes", "call", "raw"]),
@@ -1215,7 +1215,7 @@ def process(ctx, input_path: str, whisper_model: str | None, style: str | None,
     """Process an existing audio file: transcribe, diarize, summarize."""
 
     config = ctx.obj["config"]
-    whisper_model = whisper_model or get(config, "defaults", "whisper_model", default="base.en")
+    whisper_model = whisper_model or get(config, "defaults", "whisper_model", default="small")
     style = style or get(config, "defaults", "summary_style", default="meeting")
     anthropic_key = resolve_anthropic_key(config, anthropic_key)
     hf_token = resolve_hf_token(config, hf_token)
@@ -1248,7 +1248,7 @@ def process(ctx, input_path: str, whisper_model: str | None, style: str | None,
         return
 
     model = whisper.load_model(whisper_model)
-    result = model.transcribe(str(input_file), verbose=False)
+    result = model.transcribe(str(input_file), verbose=False, language="de", task="transcribe")
     segments = result.get("segments", [])
     console.print(f"[green]Transcribed: {len(segments)} segments[/green]")
 
@@ -1336,7 +1336,7 @@ def watch(ctx, address: str | None, session_key: str | None, interval: float,
     address = _require_address(address, config)
     session_key = _require_session_key(session_key, config)
     out_root = Path(get_output_dir(config, output_dir))
-    whisper_model = get(config, "defaults", "whisper_model", default="base.en")
+    whisper_model = get(config, "defaults", "whisper_model", default="small")
     style = get(config, "defaults", "summary_style", default="meeting")
     anthropic_key = resolve_anthropic_key(config)
     hf_token = resolve_hf_token(config)

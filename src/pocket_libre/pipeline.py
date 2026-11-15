@@ -14,7 +14,7 @@ async def run_sync(
     address: str,
     duration: int = 60,
     output_dir: str = "~/Pocket Libre",
-    whisper_model: str = "base.en",
+    whisper_model: str = "small",
     summary_style: str = "meeting",
     hf_token: str | None = None,
     anthropic_key: str | None = None,
@@ -87,7 +87,7 @@ async def run_sync(
         return str(session_dir)
 
     model = whisper.load_model(whisper_model)
-    result = model.transcribe(str(audio_path), verbose=False)
+    result = model.transcribe(str(audio_path), verbose=False, language="de", task="transcribe")
 
     segments = result.get("segments", [])
 

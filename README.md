@@ -51,5 +51,8 @@ diese Aussage zum Offline-Verhalten bezieht sich auf die iPhone-App.
 
 ## Lizenz
 
-[MIT](LICENSE). Gerätekommunikation basiert auf Pocket Libre. Kein Code aus
+[MIT](LICENSE) bleibt für den bisherigen Unterbau und bereits veröffentlichte Fassungen erhalten.
+Für neue eigene App-Erweiterungen liegt eine [separate Lizenzvorbereitung](licensing/README.md)
+vor: nichtkommerzielle Nutzung, kommerzielle Nutzung nur nach schriftlicher Genehmigung.
+**Der Entwurf ist noch nicht in Kraft.** Gerätekommunikation basiert auf Pocket Libre. Kein Code aus
 `osbock/pocket-sync` wurde übernommen. Abhängigkeiten: [iPhone-Dokumentation](ios/README.md).

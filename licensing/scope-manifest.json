@@ -1,0 +1,164 @@
+{
+  "status": "draft-not-adopted",
+  "baseline_commit": "15e10de60d63d2462dcbbf07b577ae6e008167f5",
+  "recorded_date": "2026-11-16",
+  "note": "Hashes classify local differences, not ownership. Third-party and prior-license exclusions in SCOPE.md control. No new license is granted by this manifest.",
+  "files": [
+    {
+      "path": "ios/PocketLibre.xcodeproj/project.pbxproj",
+      "classification": "mixed-mit-baseline-and-candidate-additions",
+      "baseline_sha256": "d383d86b1f0a2eb431248eb0a85f0b85521252d8867e51ac71f1081e49c73b42",
+      "current_sha256": "12b4aa0e57cb225c74bc9991030e8971a86ac3b449858ed054333d86ecc4f033"
+    },
+    {
+      "path": "ios/PocketLibre.xcodeproj/xcshareddata/xcschemes/PocketLibre.xcscheme",
+      "classification": "mixed-mit-baseline-and-candidate-additions",
+      "baseline_sha256": "a9b493bf3aa4ebe68d1ce5593f882fb98ca7864b1b59a63fec0f428eedcbd8ae",
+      "current_sha256": "5f94291a780f13ddcc03a4a35265e27a19381d01df477866d0e3c702cceb503b"
+    },
+    {
+      "path": "ios/PocketLibre/AudioPlayback.swift",
+      "classification": "mixed-mit-baseline-and-candidate-additions",
+      "baseline_sha256": "645535c4f6de325b7c52fbc2f7030eab2ef232110e32bda85eb68610721605ab",
+      "current_sha256": "e449087f8a952764e1a77cb07f5fcdf2527707ddb5165e1efce6daaa2daeb7f8"
+    },
+    {
+      "path": "ios/PocketLibre/Info.plist",
+      "classification": "candidate-new-extension",
+      "baseline_sha256": null,
+      "current_sha256": "c755e89e786b994f215b4cf8a76291d79ba0d7b8d39c4699b7bee3e2c59b9925"
+    },
+    {
+      "path": "ios/PocketLibre/JournalArchive.swift",
+      "classification": "candidate-new-extension",
+      "baseline_sha256": null,
+      "current_sha256": "3164d2fcf0b5739c523b7113fdce7a5848f96d2e811dd2bdf943b235ce8a8ac4"
+    },
+    {
+      "path": "ios/PocketLibre/JournalSync.swift",
+      "classification": "candidate-new-extension",
+      "baseline_sha256": null,
+      "current_sha256": "b93b7ea81fe589cf6744497c7eda73279674a5f26da87fa08a5c56f0f84ec681"
+    },
+    {
+      "path": "ios/PocketLibre/JournalViews.swift",
+      "classification": "candidate-new-extension",
+      "baseline_sha256": null,
+      "current_sha256": "853234588ec6cb2fef459a3d02c74923c464e44d78e7854e50ed33bdbb0b0d97"
+    },
+    {
+      "path": "ios/PocketLibre/LocalKnowledge.swift",
+      "classification": "candidate-new-extension",
+      "baseline_sha256": null,
+      "current_sha256": "34c55cf7546e520268c3ac2bf3d4dc5002933edd63e9c94a3134e25b92ed2f0e"
+    },
+    {
+      "path": "ios/PocketLibre/LocalLibrary.swift",
+      "classification": "mixed-mit-baseline-and-candidate-additions",
+      "baseline_sha256": "58a6bfc76c1f311a3e04198d2566a5a54ee536ab4faafab672547ac5f65848be",
+      "current_sha256": "6b7f72be326d933eaf7837a9ab49925a4a0844d4b52e03de963b87f20033f84f"
+    },
+    {
+      "path": "ios/PocketLibre/OfflineTranscriber.swift",
+      "classification": "mit-baseline-unchanged",
+      "baseline_sha256": "dd452a655b128569c256d4158fb49432cb88aa9b91bc1e3fff7048b8ea4cd34a",
+      "current_sha256": "dd452a655b128569c256d4158fb49432cb88aa9b91bc1e3fff7048b8ea4cd34a"
+    },
+    {
+      "path": "ios/PocketLibre/PocketBluetooth.swift",
+      "classification": "mit-baseline-unchanged",
+      "baseline_sha256": "edb86094d967814a201a773f9d9110808fed7ab2dad09693442e60c78451e173",
+      "current_sha256": "edb86094d967814a201a773f9d9110808fed7ab2dad09693442e60c78451e173"
+    },
+    {
+      "path": "ios/PocketLibre/PocketConnectionCard.swift",
+      "classification": "mixed-mit-baseline-and-candidate-additions",
+      "baseline_sha256": "87389239ef9ffa98272066302c543efb7f6a223f215d95a58b66374b49b2978b",
+      "current_sha256": "50340fe4449b8ec384f8aef6d0d5af499906a2347d28544cbb47269d4a25ae31"
+    },
+    {
+      "path": "ios/PocketLibre/PocketLibre.entitlements",
+      "classification": "mixed-mit-baseline-and-candidate-additions",
+      "baseline_sha256": "a1b4d522766fd240172b6b07ee80d0544b4039d43a76c7964cb1188018067acd",
+      "current_sha256": "6e375f6fb52f444d5ca7458d7d9eeb60ed2cadcfab4f6dfbe01d9b140fd6cecf"
+    },
+    {
+      "path": "ios/PocketLibre/PocketLibreApp.swift",
+      "classification": "mixed-mit-baseline-and-candidate-additions",
+      "baseline_sha256": "7052e8927fba2444b16dfcb8cc8bd3dfedaf582503c1592047fa9aa7a6055b25",
+      "current_sha256": "cd000027c5a48368bdf42aea375a86102c55883a4438bb2d43ab29d7e1cb5ab2"
+    },
+    {
+      "path": "ios/PocketLibre/PocketProtocol.swift",
+      "classification": "mit-baseline-unchanged",
+      "baseline_sha256": "9c3a10af83817fcaf601204e1c3976811eec98a51a6c5f0d4b835e56d95490e2",
+      "current_sha256": "9c3a10af83817fcaf601204e1c3976811eec98a51a6c5f0d4b835e56d95490e2"
+    },
+    {
+      "path": "ios/PocketLibre/PocketWiFi.swift",
+      "classification": "mit-baseline-unchanged",
+      "baseline_sha256": "2454c7ca79f5d0948df62725f622197bf38fb53ad7cc95d6845497e94490c904",
+      "current_sha256": "2454c7ca79f5d0948df62725f622197bf38fb53ad7cc95d6845497e94490c904"
+    },
+    {
+      "path": "ios/PocketLibre/SessionKeyGuide.swift",
+      "classification": "mit-baseline-unchanged",
+      "baseline_sha256": "668f6a63eb5571c27359e3510aa8b6eead0dc5fbf6eaba296b03e7d359c92dbd",
+      "current_sha256": "668f6a63eb5571c27359e3510aa8b6eead0dc5fbf6eaba296b03e7d359c92dbd"
+    },
+    {
+      "path": "ios/PocketLibre/TranscriptionQueue.swift",
+      "classification": "mit-baseline-unchanged",
+      "baseline_sha256": "6b64e2144abc6ad73d2a5f22008da8c1e557ce6460323f9e624801ccec45815a",
+      "current_sha256": "6b64e2144abc6ad73d2a5f22008da8c1e557ce6460323f9e624801ccec45815a"
+    },
+    {
+      "path": "ios/PocketLibre/WirelessView.swift",
+      "classification": "mit-baseline-unchanged",
+      "baseline_sha256": "c370faaa13e563abd44026da2894a88dde503c88cc4d62017952202bea579dc1",
+      "current_sha256": "c370faaa13e563abd44026da2894a88dde503c88cc4d62017952202bea579dc1"
+    },
+    {
+      "path": "ios/PocketLibreTests/JournalTests.swift",
+      "classification": "candidate-new-extension",
+      "baseline_sha256": null,
+      "current_sha256": "d1775ebe1bd845ba76c43229b53ea0223694d81bfec84bab827fa6bfeddc9f7c"
+    },
+    {
+      "path": "ios/PocketLibreTests/LocalTests.swift",
+      "classification": "mit-baseline-unchanged",
+      "baseline_sha256": "b1539f2f806ac6a11602d8fef3cdd0fcad2519dd4a8aa40b9313a1766ce50016",
+      "current_sha256": "b1539f2f806ac6a11602d8fef3cdd0fcad2519dd4a8aa40b9313a1766ce50016"
+    },
+    {
+      "path": "ios/PocketLibreTests/QueuePlaybackTests.swift",
+      "classification": "mixed-mit-baseline-and-candidate-additions",
+      "baseline_sha256": "a19b16f4a73ada9fe8b75ea035f1825bc39540d17e52bb206bcda89d3b3bf34b",
+      "current_sha256": "505cb227d7d7348b14fa1f6ca2c80d1ce5de50a3835dd1554363a46cb2ca691c"
+    },
+    {
+      "path": "ios/PocketLibreTests/WirelessTests.swift",
+      "classification": "mit-baseline-unchanged",
+      "baseline_sha256": "767440f031257bdcb65141100c25ac3aa18101f2137e17e1e4f6345062ddce60",
+      "current_sha256": "767440f031257bdcb65141100c25ac3aa18101f2137e17e1e4f6345062ddce60"
+    },
+    {
+      "path": "ios/PocketLibreUITests/JournalUITests.swift",
+      "classification": "candidate-new-extension",
+      "baseline_sha256": null,
+      "current_sha256": "738ec3ee69530009eab3705a61ab4ef946c63f668245657404be1119fdc4a658"
+    },
+    {
+      "path": "ios/PocketLibreUITests/PlaybackUITests.swift",
+      "classification": "mixed-mit-baseline-and-candidate-additions",
+      "baseline_sha256": "1c2e8201849513566527130618f913cb1d92d1e503beeb9de46c16d48cf48dd3",
+      "current_sha256": "6aeded63f4c75222342fc40ba0e1bc0f8ca14fbd4d957438a582c949371c7918"
+    },
+    {
+      "path": "ios/generate_project.rb",
+      "classification": "mixed-mit-baseline-and-candidate-additions",
+      "baseline_sha256": "9b50650954723acc3afbe4e9b7086bb42dcefabf6d9d6bc6355a50d1b8088673",
+      "current_sha256": "af2284bfd59a11ac6a6145e18ad2a59cf1fe5be46d614179ccdb09fe0a8980d1"
+    }
+  ]
+}

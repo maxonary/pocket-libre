@@ -1,0 +1,3 @@
+# Copy only the ignored root environment file into supported local worktrees.
+# Do not include device keys, recordings, diagnostics, or build artifacts.
+/.env

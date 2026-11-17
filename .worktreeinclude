@@ -1,0 +1,3 @@
+# Copy only the ignored root environment file into local Codex-managed worktrees.
+# Do not include device keys, recordings, diagnostics, or build artifacts.
+/.env

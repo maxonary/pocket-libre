@@ -9,7 +9,7 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Added
 
 - `.worktreeinclude` copies the ignored root `.env`, when present, into local
-  Codex-managed worktrees without including device keys or recordings.
+  supported app-managed worktrees without including device keys or recordings.
 
 ### Fixed
 
